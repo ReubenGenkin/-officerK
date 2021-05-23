@@ -1,5 +1,4 @@
-var now = JSON.stringify(moment().format("dddd MMMM, YYYY"));
-$("#currentDay").append(now);
+$("#currentDay").text(moment().format("dddd MMMM, YYYY"));
 
 var time = parseInt(moment().format("HH"));
 
@@ -11,23 +10,20 @@ $(".time-block").each(function () {
     );
 
     if (timeDiv < time) {
-        $(this).find('input').addClass('future');
+        $(this).find('input').addClass('past');
 
     } else if (timeDiv == time) {
         $(this).find('input').addClass('present');
 
     } else {
-        $(this).find('input').addClass('past');
+        $(this).find('input').addClass('future');
     }
 
-    var timeId = $(this)
-        .attr("id")
+    var timeId = $(this).attr("id")
 
     var timeContent = localStorage.getItem(timeId);
 
-    var timeText = $(this).find('input').val()
-
-    if (timeText !== null) {
+    if (timeId !== null) {
         $(this).find('input').val(timeContent);
     }
 })
