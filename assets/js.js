@@ -1,4 +1,4 @@
-$("#currentDay").text(moment().format("dddd MMMM, YYYY"));
+$("#currentDay").text(moment().format("MMMM, DD, YYYY"));
 
 var time = parseInt(moment().format("HH"));
 
